@@ -1,5 +1,4 @@
 from flask import Flask
-from flask_smorest import Api
 
 
 def create_app():
@@ -17,10 +16,17 @@ def create_app():
         'username': 'test',
         'password': ''
     }
+
     from flaskapp.db import db
     db.init_app(app)
 
-    from flaskapp.views import pet
-    api = Api(app)
-    api.register_blueprint(pet.mod)
+    from flaskapp import templatefilter
+    templatefilter.init_app(app)
+
+    from flaskapp import views
+    views.init_app(app)
+
+    from flaskapp.views import rest
+    rest.init_app(app)
+
     return app

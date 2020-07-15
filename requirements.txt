@@ -1,2 +1,3 @@
 flask-smorest
 flask-mongoengine
+python-dateutil

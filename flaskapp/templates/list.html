@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}List{% endblock %}
+{% block content %}
+	{% if items %}
+	<h2>Pets</h2>
+	<table class="table table-striped">
+	  <thead>
+	    <tr>
+	      <th scope="col">Name</th>
+	      <th scope="col">Date</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	{% for item in items %}
+	    <tr>
+	      <td>{{ item.name }}</td>
+	      <td>{{ item.created_at | strftime }}</td>
+	    </tr>
+	{% endfor %}
+	  </tbody>
+	</table>
+	{% else %}
+	<h2>no pets</h2>
+	{% endif %}
+{% endblock %}

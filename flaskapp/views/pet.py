@@ -10,7 +10,7 @@ mod = Blueprint('pet', __name__)
 def list():
     service = ServicePet()
     qs = service.list_pets()
-    return render_template('list.html', items=qs)
+    return render_template('pets/list.html', items=qs)
 
 
 @mod.route('/create', methods=('GET', 'POST'))
@@ -21,4 +21,4 @@ def create():
         service = ServicePet()
         service.save(data)
         return redirect('/')
-    return render_template('create.html', form=form)
+    return render_template('pets/create.html', form=form)

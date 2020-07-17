@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block title %}Create{% endblock %}
+{% block content %}
+<form method="POST" action="{{ url_for('pet.create') }}">
+	{{ form.csrf_token }}
+	<div class="form-group">
+		<label for="exampleInputName">{{ form.name.label }}</label>
+		<input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter name" name="name">
+		<small id="nameHelp" class="form-text text-muted">Enter your pets name</small>
+	</div>  
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

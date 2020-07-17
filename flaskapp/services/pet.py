@@ -5,11 +5,23 @@ from flaskapp import models
 
 class ServicePet(ServiceBase):
 
-    def list_pets(self, **kwargs):
+    def list(self, **kwargs):
         qs = models.Pet.objects(**kwargs)
         return qs
 
-    def save(self, data):
+    def get(self, slug, **kwargs):
+        obj = self.list(**kwargs).get(name=slug)
+        return obj
+
+    def create(self, data):
         item = models.Pet(**data)
         item.save()
+        return item
+
+    def update(self, obj, data):
+        item = self.list(id=obj.id).update_one(**data)
+        return item
+
+    def delete(self, obj):
+        item = self.list(id=obj.id).update_one(is_active=False)
         return item

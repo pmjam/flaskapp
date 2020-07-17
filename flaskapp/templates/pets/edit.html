@@ -1,13 +1,3 @@
-{% extends "layout.html" %}
-{% block title %}Create{% endblock %}
-{% block content %}
-<form method="POST">
-	{{ form.csrf_token }}
-	<div class="form-group">
-		<label for="exampleInputName">{{ form.name.label }}</label>
-		<input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter name" name="name" value="{{ form.name.data | none_to_null }}">
-		<small id="nameHelp" class="form-text text-muted">Enter your pets name</small>
-	</div>  
-	<button type="submit" class="btn btn-primary">Submit</button>
-</form>
-{% endblock %}
+{% extends "pets/pet.html" %}
+{% block title %}Edit pet{% endblock %}
+{% block pethead %} Edit pet {% endblock %}

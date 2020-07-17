@@ -21,7 +21,7 @@ def create():
         service = ServicePet()
         service.create(data)
         return redirect('/')
-    return render_template('pets/edit.html', form=form)
+    return render_template('pets/add.html', form=form)
 
 
 @mod.route('/<slug>/update', methods=('GET', 'POST'))

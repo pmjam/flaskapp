@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Add pet{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        {% block pethead %}{% endblock %}
+    </div>
+    <div class="card-body">
+		<form method="POST">
+			{{ form.csrf_token }}
+			<div class="form-group">
+				<label for="exampleInputName">{{ form.name.label }}</label>
+				<input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter name" name="name" value="{{ form.name.data | none_to_null }}">
+				<small id="nameHelp" class="form-text text-muted">Enter your pets name</small>
+			</div>
+			<div class="float-right">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+    </div>
+</div>
+{% endblock %}

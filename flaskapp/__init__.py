@@ -3,19 +3,7 @@ from flask import Flask
 
 def create_app():
     app = Flask(__name__)
-    app.config['API_TITLE'] = 'My API'
-    app.config['API_VERSION'] = 'v1'
-    app.config['OPENAPI_VERSION'] = '3.0.2'
-    app.config["OPENAPI_URL_PREFIX"] = "/api"
-    app.config["OPENAPI_SWAGGER_UI_PATH"] = "/swagger"
-    app.config["OPENAPI_SWAGGER_UI_URL"] = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.24.2/"
-    app.config['MONGODB_SETTINGS'] = {
-        'db': 'dbflaskapp',
-        'host': 'localhost',
-        'port': 27017,
-        'username': 'test',
-        'password': ''
-    }
+    app.config.from_envvar('APP_CONFIG_FILE')
 
     from flaskapp.db import db
     db.init_app(app)

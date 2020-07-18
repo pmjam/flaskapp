@@ -9,29 +9,31 @@
         </div>
     </div>
     <div class="card-body">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Date</th>
-              <th>Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for item in items %}
-            <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.name }}</td>
-                <td>{{ item.created_at | strftime }}</td>
-                <td>
-                    <a class="btn btn-primary btn-sm" href="{{ url_for('pet.update', id=item.id) }}" role="button">Edit</a>
-                    <a class="btn btn-danger btn-sm" href="{{ url_for('pet.delete', id=item.id) }}" role="button">Delete</a>
-                </td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.created_at | strftime }}</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="{{ url_for('pet.update', id=item.id) }}" role="button">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="{{ url_for('pet.delete', id=item.id) }}" role="button">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 {% endblock %}

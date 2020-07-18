@@ -24,10 +24,10 @@ def create():
     return render_template('pets/add.html', form=form)
 
 
-@mod.route('/<slug>/update', methods=('GET', 'POST'))
-def update(slug):
+@mod.route('/<id>/update', methods=('GET', 'POST'))
+def update(id):
     service = ServicePet()
-    obj = service.get(slug)
+    obj = service.get(id)
 
     form = PetForm(obj=obj)
     if form.validate_on_submit():
@@ -37,9 +37,9 @@ def update(slug):
     return render_template('pets/edit.html', form=form)
 
 
-@mod.route('/<slug>/delete', methods=('GET',))
-def delete(slug):
+@mod.route('/<id>/delete', methods=('GET',))
+def delete(id):
     service = ServicePet()
-    obj = service.get(slug)
+    obj = service.get(id)
     service.delete(obj)
     return redirect('/')

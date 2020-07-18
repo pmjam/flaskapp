@@ -10,7 +10,7 @@ class ServicePet(ServiceBase):
         return qs
 
     def get(self, slug, **kwargs):
-        obj = self.list(**kwargs).get(name=slug)
+        obj = self.list(**kwargs).get(id=slug)
         return obj
 
     def create(self, data):

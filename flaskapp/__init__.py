@@ -8,6 +8,9 @@ def create_app():
     from flaskapp.db import db
     db.init_app(app)
 
+    from flaskapp import auth
+    auth.init_app(app)
+
     from flaskapp import templatefilter
     templatefilter.init_app(app)
 

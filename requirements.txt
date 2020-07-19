@@ -1,4 +1,7 @@
 flask-smorest
 flask-mongoengine
 flask-wtf
+flask-login
+flask-bcrypt
 python-dateutil
+email_validator

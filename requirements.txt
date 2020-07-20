@@ -4,5 +4,6 @@ flask-wtf
 flask-login
 flask-bcrypt
 flask-jwt-extended
+flask-cors
 python-dateutil
 email_validator

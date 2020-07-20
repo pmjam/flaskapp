@@ -10,7 +10,7 @@ mod = Blueprint(
 )
 
 
-@mod.route('/pets')
+@mod.route('/')
 class Pets(MethodView):
 
     @mod.arguments(schemas.PetQueryArgsSchema, location='query')

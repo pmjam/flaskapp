@@ -5,12 +5,12 @@ from flaskapp.services import ServicePet
 
 
 mod = Blueprint(
-    'pets', 'pets', url_prefix='/pets',
+    'pets', 'pets',
     description='Operations on pets'
 )
 
 
-@mod.route('/')
+@mod.route('/pets')
 class Pets(MethodView):
 
     @mod.arguments(schemas.PetQueryArgsSchema, location='query')
@@ -18,7 +18,7 @@ class Pets(MethodView):
     def get(self, args):
         """List pets"""
         service = ServicePet()
-        qs = service.list_pets(**args)
+        qs = service.list(**args)
         return qs
 
     @mod.arguments(schemas.PetSchema)

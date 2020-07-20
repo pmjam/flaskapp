@@ -3,7 +3,7 @@ from flask_smorest import Blueprint, abort
 from flaskapp import schemas
 from flaskapp.services import ServiceUser
 from flask_jwt_extended import create_access_token
-from mongoengine import DoesNotExist
+from flaskapp.db import DoesNotExist
 
 
 mod = Blueprint(

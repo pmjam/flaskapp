@@ -6,6 +6,20 @@ OPENAPI_VERSION = '3.0.2'
 OPENAPI_URL_PREFIX = '/api'
 OPENAPI_SWAGGER_UI_PATH = '/swagger'
 OPENAPI_SWAGGER_UI_URL = 'https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.24.2/'
+API_SPEC_OPTIONS = {
+    'security': [{"bearerAuth": []}],
+    'components': {
+        "securitySchemes":
+            {
+                "bearerAuth": {
+                    "type": "http",
+                    "scheme": "bearer",
+                    "bearerFormat": "JWT"
+                }
+            }
+    }
+}
+
 MONGODB_SETTINGS = {
     'db': 'dbflaskapp',
     'host': 'localhost',

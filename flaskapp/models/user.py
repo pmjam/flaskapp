@@ -1,10 +1,10 @@
 # encoding: utf-8
 import mongoengine as me
-from flask_login import UserMixin
 from flaskapp import auth
+from .base import BaseDocument
 
 
-class User(UserMixin, me.Document):
+class User(BaseDocument):
     email = me.StringField(max_length=30)
     _password = me.StringField()
 
@@ -21,3 +21,22 @@ class User(UserMixin, me.Document):
 
     def check_password(self, value):
         return auth.bcrypt.check_password_hash(self.password, value) is True
+
+    # flask-login
+    # @property
+    # def is_active(self):
+    #     return True
+
+    @property
+    def is_authenticated(self):
+        return True
+
+    # @property
+    # def is_anonymous(self):
+    #     return False
+
+    def get_id(self):
+        try:
+            return str(self.id)
+        except AttributeError:
+            raise NotImplementedError('No `id` attribute - override `get_id`')

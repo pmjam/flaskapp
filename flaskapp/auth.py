@@ -9,7 +9,7 @@ bcrypt = Bcrypt()
 jwt = JWTManager()
 service = ServiceUser()
 login_manager = LoginManager()
-login_manager.login_view = "login.signin"
+login_manager.login_view = 'login.signin'
 
 
 def init_app(app):

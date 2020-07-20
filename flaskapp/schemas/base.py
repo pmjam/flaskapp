@@ -3,4 +3,6 @@ import marshmallow as ma
 
 
 class BaseSchema(ma.Schema):
-    pass
+    created_at = ma.fields.DateTime()
+    updated_at = ma.fields.DateTime()
+    is_active = ma.fields.Boolean()

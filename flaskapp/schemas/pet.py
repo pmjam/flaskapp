@@ -1,11 +1,11 @@
 # encoding: utf-8
 import marshmallow as ma
+from .base import BaseSchema
 
 
-class PetSchema(ma.Schema):
+class PetSchema(BaseSchema):
     name = ma.fields.String()
 
 
-class PetQueryArgsSchema(ma.Schema):
+class PetQueryArgsSchema(BaseSchema):
     name = ma.fields.String()
-    is_active = ma.fields.Boolean()

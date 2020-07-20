@@ -3,5 +3,6 @@ flask-mongoengine
 flask-wtf
 flask-login
 flask-bcrypt
+flask-jwt-extended
 python-dateutil
 email_validator

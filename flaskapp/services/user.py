@@ -1,6 +1,5 @@
 # encoding: utf-8
 from .base import ServiceBase
-from flask_login import login_user, logout_user
 from flaskapp import models
 
 
@@ -29,10 +28,6 @@ class ServiceUser(ServiceBase):
     def login(self, username, password):
         user = self.get_by_email(username)
         if user.check_password(password):
-            login_user(user)
-            return True
+            return user
         else:
             return False
-
-    def logout(self):
-        logout_user()
